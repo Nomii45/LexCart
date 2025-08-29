@@ -5,108 +5,88 @@ function Signup() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <section className="bg-gray-100 min-h-screen flex justify-center items-center px-10">
-      <div className="bg-[#dfa674] rounded-2xl flex flex-col md:flex-row max-w-4xl w-full p-8 md:p-10 shadow-lg">
-        
-        {/* Left side form */}
-        <div className="md:w-1/2 md:px-8 space-y-6">
-          <h2 className="font-bold text-3xl text-[#002D74]">Login</h2>
-          <p className="text-sm text-[#002D74]">
-            If you’re not a member, easily signup now.
-          </p>
+    <div className="font-sans">
+      <div className="relative min-h-screen flex flex-col justify-center items-center 
+      bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 animate-gradient-x px-4">
+        <div className="relative w-full max-w-md sm:max-w-sm">
+          {/* Background tilted cards (hidden on mobile for responsiveness) */}
+          <div className="hidden sm:block card bg-blue-400 shadow-lg w-full h-full rounded-3xl absolute transform -rotate-6"></div>
+          <div className="hidden sm:block card bg-red-400 shadow-lg w-full h-full rounded-3xl absolute transform rotate-6"></div>
 
-          <form className="flex flex-col gap-5">
-            <input
-              className="p-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-[#002D74]"
-              type="name"
-              name="name"
-              placeholder="Enter full name"
-            />
-             <input
-              className="p-3 rounded-xl border focus:outline-none focus:ring-2 focus:ring-[#002D74]"
-              type="email"
-              name="email"
-              placeholder="Enter email"
-            />
-
-            {/* Password Input */}
-            <div className="relative">
-              <input
-                className="p-3 rounded-xl border w-full focus:outline-none focus:ring-2 focus:ring-[#002D74]"
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Password"
-              />
-              {showPassword ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="gray"
-                  onClick={() => setShowPassword(false)}
-                  className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8z" />
-                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z" />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="gray"
-                  onClick={() => setShowPassword(true)}
-                  className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M13.359 11.238C12.086 12.302 10.27 13 8 13c-5 0-8-5-8-5s.939-1.721 2.641-3.238" />
-                  <path d="M10.79 12.912l-1.614-1.615A3.5 3.5 0 0 1 4.702 7.57" />
-                </svg>
-              )}
-            </div>
-
-            <button
-              className="bg-[#002D74] text-white py-3 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium"
-              type="submit"
-            >
+          {/* Form container */}
+          <div className="relative w-full rounded-3xl px-6 py-6 sm:py-8 bg-gray-100 shadow-md">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-700 text-center">
               Signup
-            </button>
-          </form>
+            </h2>
 
-          {/* Divider */}
-          <div className="flex items-center my-6">
-            <hr className="flex-grow border-gray-300" />
-            <p className="mx-2 text-sm text-gray-600">OR</p>
-            <hr className="flex-grow border-gray-300" />
+            <form method="#" action="#" className="mt-8 space-y-6">
+              {/* Name */}
+              <input
+                type="text"
+                placeholder="Enter full name"
+                className="pl-3 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-md 
+                hover:bg-blue-100 focus:bg-blue-100 focus:ring-2 focus:ring-blue-400 text-sm sm:text-base"
+              />
+
+              {/* Email */}
+              <input
+                type="email"
+                placeholder="Enter email"
+                className="pl-3 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-md 
+                hover:bg-blue-100 focus:bg-blue-100 focus:ring-2 focus:ring-blue-400 text-sm sm:text-base"
+              />
+
+              {/* Password */}
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter password"
+                  className="pl-3 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-md 
+                  hover:bg-blue-100 focus:bg-blue-100 focus:ring-2 focus:ring-blue-400 text-sm sm:text-base"
+                />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-500 text-lg"
+                >
+                  {showPassword ? "👁️" : "🙈"}
+                </span>
+              </div>
+
+              {/* Signup button */}
+              <button
+                type="submit"
+                className="bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner 
+                focus:outline-none transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105 text-sm sm:text-base"
+              >
+                Signup
+              </button>
+
+              {/* Divider */}
+              <div className="flex items-center text-center">
+                <hr className="border-gray-300 border-1 w-full rounded-md" />
+                <span className="block font-medium text-sm text-gray-600 w-full">
+                  OR
+                </span>
+                <hr className="border-gray-300 border-1 w-full rounded-md" />
+              </div>
+
+              {/* Login link */}
+              <div className="flex justify-center items-center mt-4 text-sm sm:text-base">
+                <span className="mr-2">Already have an account?</span>
+                <Link
+                  to="/login"
+                  className="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
+                >
+                  Sign in
+                </Link>
+              </div>
+            </form>
           </div>
-
-          <p className="text-sm text-[#002D74] cursor-pointer hover:underline">
-            Forgot password?
-          </p>
-
-          {/* Register Button */}
-          <div className="flex justify-between items-center mt-6">
-            <p className="text-sm">Already have an account?</p>
-           <Link to="/login">
-            <button className="text-white bg-[#002D74] hover:bg-[#206ab1] rounded-xl py-2 px-5 hover:scale-110 font-semibold duration-300">
-              Sign in
-            </button>
-            </Link>
-          </div>
-        </div>
-
-        {/* Right side image */}
-        <div className="md:block hidden w-1/2 p-4">
-          <img
-            className="rounded-2xl object-cover w-full h-full"
-            src="https://images.unsplash.com/photo-1552010099-5dc86fcfaa38"
-            alt="login form"
-          />
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
 export default Signup;
+
