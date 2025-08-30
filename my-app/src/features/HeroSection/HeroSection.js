@@ -22,6 +22,8 @@ function HeroSection() {
     { x: -200, y: -140, zIndex: 1, scale: 1 }, 
   ];
 
+
+  
   return (
     <section className="h-[500px] text-white">
 
